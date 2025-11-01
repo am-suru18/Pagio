@@ -13,7 +13,7 @@ const createBook = async (req, res) => {
 // @desc Get all books for a user
 // @route GET /api/books
 // @access PRIVATE
-const getBook = async (req, res) => {
+const getBooks = async (req, res) => {
   try {
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
@@ -50,10 +50,21 @@ const deleteBook = async (req, res) => {
   }
 };
 
+// @desc Update book's cover image
+// @route PUT /api/books/cover/:id
+// @access PRIVATE
+const updateBookCover = async (req, res) => {
+  try {
+  } catch (error) {
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
 module.exports = {
   createBook,
-  getBook,
+  getBooks,
   getBookById,
   updateBook,
   deleteBook,
+  updateBookCover
 };
