@@ -5,6 +5,23 @@ const Book = require("../models/Book");
 // @access PRIVATE
 const createBook = async (req, res) => {
   try {
+    const { title, author, subtitle, chapters } = req.body;
+
+    if (!title || !author) {
+      return res
+        .status(400)
+        .json({ message: "Please provide the title and the author" });
+    }
+
+    const book = await Book.create({
+      userId: req.user._id,
+      title,
+      author,
+      subtitle,
+      chapters,
+    });
+
+    res.status(201).json(book);
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
   }
@@ -66,5 +83,5 @@ module.exports = {
   getBookById,
   updateBook,
   deleteBook,
-  updateBookCover
+  updateBookCover,
 };
