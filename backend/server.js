@@ -29,7 +29,7 @@ app.use("/backend/uploads", express.static(path.join(__dirname, "uploads")));
 
 //Routes Here
 app.use("/api/auth", authRoutes);
-app.use("/api/book", bookRoutes);
+app.use("/api/books", bookRoutes);
 
 //Start the server
 const PORT = process.env.PORT || 5000;
