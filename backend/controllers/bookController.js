@@ -122,6 +122,27 @@ const deleteBook = async (req, res) => {
 // @access PRIVATE
 const updateBookCover = async (req, res) => {
   try {
+    const book = await Book.findById(req.params.id);
+
+    if (!book) {
+      return res.status(404).json({ message: "Book not found" });
+    }
+
+    if (req.user._id.toString() !== book.userId.toString()) {
+      return res
+        .status(401)
+        .json({ message: "Not authorized to update this book's cover" });
+    }
+
+    if (req.file) {
+      book.coverImage = `${req.file.path}`;
+    } else {
+      return res.status(400).json({ message: "No image file provided" });
+    }
+
+    const updatedBook = await book.save();
+
+    res.status(200).json(updatedBook);
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
   }
