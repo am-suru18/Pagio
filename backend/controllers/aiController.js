@@ -13,7 +13,36 @@ const generateOutline = async (req, res) => {
       return res.status(400).json({ message: "Please provide a topic" });
     }
 
-    const prompt = ``;
+    const prompt = `You are an expert book outline generator. Create a comprehensive book outline based on the following requirements:
+    
+    Topic: "${topic}"
+    ${description ? `Description: ${description}` : ""} 
+    Writing Style: ${style}
+    Number of Chapters: ${numChapters || 5}
+
+    Requirements:
+    1. Generate exactly ${numChapters || 5} chapters
+    2. Each chapter title should be clear, engaging, and follow a logical progression
+    3. Each chapter description should be 2-3 sentences explaining what chapter covers
+    4. Ensure chapters build upon each other coherently
+    5. Match the "${style}" writing syle in your titles and descriptions
+
+    Output format:
+    Return ONLY a valid JSON array with no additional text, markdown, or formatting. Each object must have exactly two keys: "title" and "description".
+
+    Example structure:
+    [
+        {
+            "title": "Chapter 1: Introduction to the Topic",
+            "description": "A comprehensive overview introducing the main concepts. Sets the foundation for understanding the subject matter."
+        },
+        {
+            "title": "Chapter 2: Core Principles",
+            "description": "Explores the fundamental principles and theories. Provides detailed examples and real-world applications."
+        }
+    ]
+    
+    Generate the outline now:`;
 
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash-lite",
