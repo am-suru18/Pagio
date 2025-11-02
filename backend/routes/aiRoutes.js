@@ -5,7 +5,7 @@ const {
   generateChapterContent,
 } = require("../controllers/aiController");
 
-const { protext } = require("../middlewares/authMiddleware");
+const { protect } = require("../middlewares/authMiddleware");
 
 //Apply protect middleware to all the routes
 router.use(protect);

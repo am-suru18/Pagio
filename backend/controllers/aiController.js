@@ -46,7 +46,7 @@ const generateOutline = async (req, res) => {
 
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash-lite",
-      contents: prompt,
+      contents: [{ type: "text", text: prompt }],
     });
 
     const text = response.text;
