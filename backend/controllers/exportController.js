@@ -298,7 +298,6 @@ const processInlineContent = (children) => {
   return textRuns;
 }
 
-
 const exportAsDocument = async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
@@ -513,6 +512,39 @@ const exportAsDocument = async (req, res) => {
     return res.status(500).json({ message: "Server error" });
   }
 };
+
+//Typography configuration for modern ebook styling
+const TYPOGRAPHY = {
+  fonts: {
+    serif: "Times-Roman",
+    serifBold: "Times-Bold",
+    serifItalic: "Times-Italic",
+    sans: "Helvetica",
+    sansBold: "Helvetica-Bold",
+    sansOblique: "Helvetica-Oblique"
+  },
+  sizes: {
+    title: 28,
+    author: 16,
+    chapterTitle: 20,
+    h1: 18,
+    h2: 16,
+    h3: 14,
+    body: 11,
+    caption: 9
+  },
+  spacing: {
+    paragraphSpacing: 12,
+    chapterSpacing: 24,
+    headingSpacing: { befor: 16, after: 8 },
+    listSpacing: 6,
+  },
+  colors: {
+    text: "#333333",
+    heading: "#1A1A1A",
+    accent: "#4F46E5"
+  }
+}
 
 const exportAsPDF = async (req, res) => {
   try {
