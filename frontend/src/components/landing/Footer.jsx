@@ -1,5 +1,5 @@
-import { BookOpen, Github, Linkedin } from 'lucide-react';
 import React from 'react';
+import { BookOpen, Twitter, Github, Linkedin } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -43,7 +43,7 @@ const Footer = () => {
                             <a
                                 href="https://github.com"
                                 className=""
-                                aria-label="Github"
+                                aria-label="GitHub"
                             >
                                 <Github className="" />
                             </a>
