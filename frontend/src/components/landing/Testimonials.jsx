@@ -29,7 +29,7 @@ const Testimonials = () => {
 
                     {/* Testimonials Grid */}
                     <div className="">
-                        {Testimonials.map((testimonial, index) => (
+                        {TESTIMONIALS.map((testimonial, index) => (
                             <div key={index} className="">
                                 {/* Quote Icon */}
                                 <div className="">
@@ -38,7 +38,7 @@ const Testimonials = () => {
 
                                 {/* Rating Stars */}
                                 <div className="">
-                                    {[...Array(testimonial.rating)].map(
+                                    {[...Array(testimonial.rating || 5)].map(
                                         (_, i) => (
                                             <Star key={i} className="" />
                                         )
