@@ -6,6 +6,7 @@ const ProfileDropdown = ({
     onToggle,
     companyName,
     email,
+    avatar,
     onLogout
 }) => {
     const navigate = useNavigate();
@@ -24,7 +25,7 @@ const ProfileDropdown = ({
                 ) : (
                     <div className="h-8 w-8 bg-linear-to-br from-violet-400 to-violet-500 rounded-xl flex items-center justify-center">
                         <span className="text-white font-semibold text-sm">
-                            {companyName.charAt(0).toUpperCase()}
+                            {companyName?.charAt(0)?.toUpperCase() || '?'}
                         </span>
                     </div>
                 )}
