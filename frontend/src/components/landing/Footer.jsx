@@ -32,7 +32,7 @@ const Footer = () => {
                         {/* Social Links */}
                         <div className="flex items-center space-x-3 pt-2">
                             <a
-                                href="https://twitter.com"
+                                href="https://twitter.com/suruuuu_18"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 bg-white/5 hover:bg-violet-600 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
@@ -41,7 +41,7 @@ const Footer = () => {
                                 <Twitter className="w-5 h-5" />
                             </a>
                             <a
-                                href="https://linkedin.com"
+                                href="https://www.linkedin.com/in/surajchaudhary18/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 bg-white/5 hover:bg-violet-600 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
@@ -50,7 +50,7 @@ const Footer = () => {
                                 <Linkedin className="w-5 h-5" />
                             </a>
                             <a
-                                href="https://github.com"
+                                href="https://github.com/am-suru18"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 bg-white/5 hover:bg-violet-600 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
