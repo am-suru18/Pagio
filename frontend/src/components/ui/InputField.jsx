@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputField = ({ label, name, Icon, ...props }) => {
+const InputField = ({ label, icon: Icon, name = '', ...props }) => {
     return (
         <div className="space-y-2">
             <label

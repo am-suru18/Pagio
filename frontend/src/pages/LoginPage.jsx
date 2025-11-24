@@ -10,9 +10,52 @@ import axiosInstance from '../utils/axiosInstance';
 import { API_PATHS } from '../utils/apiPaths';
 
 const LoginPage = () => {
-    return <div className="">
-        
-    </div>;
+    const [formData, setFormData] = useState({ email: '', password: '' });
+    const [isLoading, setIsLoading] = useState(false);
+    const { login } = useAuth();
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        try {
+        } catch (error) {
+            localStorage.clear();
+            toast.error(
+                error.response?.data?.message ||
+                    'Login failed. Please try again.'
+            );
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    return (
+        <div className="">
+            <div className="">
+                <div className="">
+                    <div className="">
+                        <BookOpen className=''/>
+                    </div>
+                    <h1 className="">Welcome Back</h1>
+                    <p className="">Sign in to continue to your eBook dashboard.</p>
+                </div>
+
+                <div className="">
+                    <form onSubmit={handleSubmit} className="">
+                        <InputField
+                            label="Email"
+                            name="email"
+                            type="email"
+                    </form>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default LoginPage;
