@@ -10,7 +10,9 @@ import axiosInstance from '../utils/axiosInstance';
 import { API_PATHS } from '../utils/apiPaths';
 
 const LoginPage = () => {
-    return <div className=""></div>;
+    return <div className="">
+        
+    </div>;
 };
 
 export default LoginPage;
