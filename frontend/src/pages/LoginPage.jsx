@@ -24,7 +24,26 @@ const LoginPage = () => {
         setIsLoading(true);
 
         try {
-            // You asked to keep this empty
+            const response = await axiosInstance.post(
+                API_PATHS.AUTH.LOGIN,
+                formData
+            );
+
+            const { token } = response.data;
+
+            // Store token for axios interceptors
+            localStorage.setItem('token', token);
+
+            // Fetch user profile
+            const profileResponse = await axiosInstance.get(
+                API_PATHS.AUTH.GET_PROFILE
+            );
+
+            // AuthContext login → pass correct user object and token
+            login(profileResponse.data.user, token);
+
+            toast.success('Login successful!');
+            navigate('/dashboard');
         } catch (error) {
             toast.error(
                 error.response?.data?.message ||
