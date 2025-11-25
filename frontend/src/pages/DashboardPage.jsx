@@ -37,15 +37,38 @@ const DashboardPage = () => {
     };
 
     const handleCreateBookClick = () => {
-        setIsCreateModalOpen(true)
-    }
+        setIsCreateModalOpen(true);
+    };
 
     const handleBookCreated = (bookId) => {
-        setIsCreateModalOpen(false)
-        navigate(`/editor/${bookId}`)
-    }
+        setIsCreateModalOpen(false);
+        navigate(`/editor/${bookId}`);
+    };
 
-    return <div>DashboardPage</div>;
+    return (
+        <DashboardLayout>
+            <div className="container mx-auto p-6">
+                <div className="flex items-center justify-between mb-8">
+                    <div>
+                        <h1 className="text-lg font-bold text-slate-900">
+                            All eBooks
+                        </h1>
+                        <p className="text-[13px] text-slate-600 mt-1">
+                            Create, edit, and manage all your AI-generated
+                            eBooks.
+                        </p>
+                    </div>
+                    <Button
+                        className="whitespace-nowrap"
+                        onClick={handleCreateBookClick}
+                        icon={Plus}
+                    >
+                        Create New eBook
+                    </Button>
+                </div>
+            </div>
+        </DashboardLayout>
+    );
 };
 
 export default DashboardPage;
