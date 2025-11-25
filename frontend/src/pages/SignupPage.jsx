@@ -19,7 +19,11 @@ const SignupPage = () => {
     const { login } = useAuth();
     const navigate = useNavigate();
 
-    const handleChange = async (e) => {
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
         try {
