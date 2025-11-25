@@ -6,7 +6,8 @@ import { Plus, Book } from 'lucide-react';
 import DashboardLayout from '../components/layout/DashboardLayout.jsx';
 import Button from '../components/ui/Button.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
-import axiosInstance, { API_PATHS } from '../utils/apiPaths.js';
+import axiosInstance from '../utils/axiosInstance.js';
+import { API_PATHS } from '../utils/apiPaths.js';
 
 const DashboardPage = () => {
     const [books, setBooks] = useState([]);
