@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { Plus, Book } from 'lucide-react';
 
+import BookCard from '../components/cards/BookCard.jsx';
 import DashboardLayout from '../components/layout/DashboardLayout.jsx';
 import Button from '../components/ui/Button.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
@@ -18,7 +19,7 @@ const BookCardSkeleton = () => (
             <div className="h-4 bg-slate-200 rounded w-1/2"></div>
         </div>
     </div>
-)
+);
 
 const DashboardPage = () => {
     const [books, setBooks] = useState([]);
@@ -90,7 +91,9 @@ const DashboardPage = () => {
                         <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-4">
                             <Book className="w-8 h-8 text-slate-400" />
                         </div>
-                        <h1 className="text-lg font-medium text-slate-900 mb-2">No eBooks found</h1>
+                        <h1 className="text-lg font-medium text-slate-900 mb-2">
+                            No eBooks found
+                        </h1>
                         <p className="text-slate-900 mb-6 max-w-md">
                             You haven't created any eBooks yet. Get started by
                             creating your first one.
@@ -100,7 +103,15 @@ const DashboardPage = () => {
                         </Button>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+                    <div className="">
+                        {books.map((book) => (
+                            <BookCard
+                                key={book._id}
+                                book={book}
+                                onDelete={() => setBookToDelete(book._id)}
+                            />
+                        ))}
+                    </div>
                 )}
             </div>
         </DashboardLayout>
