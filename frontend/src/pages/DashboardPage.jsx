@@ -37,7 +37,7 @@ const ConfirmationModal = ({ isOpen, onClose, onConfirm, title, message }) => {
                     </h3>
                     <p className="text-slate-600 mb-6">{message}</p>
                     <div className="flex justify-end space-x-3">
-                        <Button variant="secondary" onClick={onclose}>
+                        <Button variant="secondary" onClick={onClose}>
                             Cancel
                         </Button>
                         <Button
@@ -161,7 +161,7 @@ const DashboardPage = () => {
 
                 <ConfirmationModal
                     isOpen={!!bookToDelete}
-                    onclose={() => setBookToDelete(null)}
+                    onClose={() => setBookToDelete(null)}
                     onConfirm={handleDeleteBook}
                     title="Delete eBook"
                     message="Are you sure you want to delete this eBook? This action cannot be undone."
