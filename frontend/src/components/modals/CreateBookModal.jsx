@@ -21,7 +21,7 @@ import { useAuth } from '../../context/AuthContext';
 const CreateBookModal = ({ isOpen, onClose, onBookCreated }) => {
     const { user } = useAuth();
 
-    const [step, setStep] = useState(2);
+    const [step, setStep] = useState(1);
     const [bookTitle, setBookTitle] = useState('');
     const [numChapters, setNumChapters] = useState(5);
     const [aiTopic, setAiTopic] = useState('');
