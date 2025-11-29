@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
 import {
     Sparkles,
@@ -23,6 +23,23 @@ import Modal from "../components/ui/Modal.jsx"
 import SelectField from "../components/ui/SelectField.jsx"
 
 const EditorPage = () => {
+    const { bookId } = useParams();
+    const useNavigate = useNavigate()
+    const [book, setBook] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
+    const [isSaving, setIsSaving] = useState(false)
+    const [isUploading, setIsUploading] = useState(false)
+    const [selectedChapterIndex, setSelectedChapterIndex] = useState(0)
+    const [activeTab, setActiveTab] = useState("editor")
+    const fileInputRef = useRef(null)
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
+    //AI Modal State
+    const [isOutlineModalOpen, setIsOutlineModalOpen] = useState(false)
+    const [aiTopic, setAiTopic] = useState("")
+    const [aiStyle, setAiStyle] = useState("Informative")
+    const [isGenerating, setIsGenerating] = useState(false)
+
     return <div>EditorPage</div>;
 };
 
