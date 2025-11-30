@@ -10,7 +10,8 @@ import {
     Edit,
     NotebookText,
     ChevronDown,
-    FileText
+    FileText,
+    StepBack
 } from 'lucide-react';
 import { arrayMove } from '@dnd-kit/sortable';
 
@@ -90,7 +91,50 @@ const EditorPage = () => {
         );
     }
 
-    return <div>EditorPage</div>;
+    return (
+        <>
+            <div className="">
+                {/* Mobile Sidebar */}
+                {isSidebarOpen && (
+                    <div className="" role="dialog" aria-modal="true">
+                        <div
+                            className=""
+                            aria-hidden="true"
+                            onClick={() => setIsSidebarOpen(false)}
+                        ></div>
+                        <div className="">
+                            <div className="">
+                                <button
+                                    type="button"
+                                    className=""
+                                    onClick={() => setIsSidebarOpen(false)}
+                                >
+                                    <span className=""> Close Sidebar</span>
+                                    <X className="" />
+                                </button>
+                            </div>
+                            <ChapterSidebar
+                                book={book}
+                                selectedChapterIndex={selectedChapterIndex}
+                                onSelectChapter={(index) => {
+                                    setSelectedChapterIndex(index);
+                                    setIsSidebarOpen(false);
+                                }}
+                                onAddChapter={handleAddChapter}
+                                onDeleteChapter={handleDeleteChapter}
+                                onGenerateChapterContent={
+                                    handleGenerateChapterContent
+                                }
+                                isGenerating={isGenerating}
+                                onReorderChapters={handleReorderChapters}
+                            />
+                        </div>
+                        <div className="" aria-hidden="hidden"></div>
+                    </div>
+                )}
+            </div>
+        </>
+    );
 };
 
 export default EditorPage;
