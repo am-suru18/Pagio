@@ -20,7 +20,48 @@ const SortableItem = ({
     onGenerateChapterContent,
     isGenerating
 }) => {
-    return <div className=""></div>;
+    const { attributes, listeners, setNodeRef, transform, transition } =
+        useSortable({ id: chapter._id || `new${index}` });
+    const style = {
+        transform: CSS.Transform.toString(transform),
+        transition
+    };
+    return (
+        <div ref={setNodeRef} style={style} className="">
+            <button
+                className={`flex-1 flex items-center p-3 text-sm rounded-l-lg text-left transition-colors ${
+                    selectedChapterIndex === index
+                        ? 'bg-violet-50/50 text-violet-800 font-semibold'
+                        : 'text-slate-600 hover:bg-slate-100'
+                }`}
+                onClick={() => onSelectChapter}
+            >
+                <GripVertical className="" {...listeners} {...attributes} />
+                <span className="">{chapter.title}</span>
+            </button>
+            <div className="">
+                <Button
+                    variant="ghost"
+                    size="small "
+                    className=""
+                    onClick={() => onGenerateChapterContent(index)}
+                    isLoading={isGenerating === index}
+                    title="Generate Content with AI"
+                >
+                    {isGenerating !== index && <Sparkles className="" />}
+                </Button>
+                <Button
+                    variant="ghost"
+                    size="small"
+                    className=""
+                    onClick={() => onDeleteChapter(index)}
+                    title="Delete chapter"
+                >
+                    <Trash2 className="" />
+                </Button>
+            </div>
+        </div>
+    );
 };
 
 const ChapterSidebar = ({
