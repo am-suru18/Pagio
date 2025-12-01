@@ -47,7 +47,60 @@ const ChapterSidebar = ({
             onReorderChapters(oldIndex, newIndex);
         }
     };
-    return <div></div>;
+    return (
+        <aside className="">
+            <div className="">
+                <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => navigate('/dashboard')}
+                >
+                    <ArrowLeft className="" />
+                    Back to Dashboard
+                </Button>
+                <h2 className="" title={book.title}>
+                    {book.title}
+                </h2>
+            </div>
+            <div className="">
+                <DndContext
+                    collisionDetection={closestCenter}
+                    onDragEnd={handleDragEnd}
+                >
+                    <SortableContext
+                        items={chapterIds}
+                        strategy={verticalListSortingStrategy}
+                    >
+                        <div className="">
+                            {book.chapters.map((chapter, index) => (
+                                <SortableItem
+                                    key={chapter._id || `new-${index}`}
+                                    chapter={chapter}
+                                    index={index}
+                                    selectedChapterIndex={selectedChapterIndex}
+                                    onSelectChapter={onSelectChapter}
+                                    onDeleteChapter={onDeleteChapter}
+                                    onGenerateChapterContent={
+                                        onGenerateChapterContent
+                                    }
+                                    isGenerating={isGenerating}
+                                />
+                            ))}
+                        </div>
+                    </SortableContext>
+                </DndContext>
+            </div>
+
+            <div className="">
+                <Button 
+                variant='secondary'
+                onClick={onAddChapter}
+                className=''
+                icon={Plus}
+                >New</Button>
+            </div>
+        </aside>
+    );
 };
 
 export default ChapterSidebar;
