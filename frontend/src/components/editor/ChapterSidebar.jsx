@@ -48,21 +48,24 @@ const ChapterSidebar = ({
         }
     };
     return (
-        <aside className="">
-            <div className="">
+        <aside className="w-80 h-full bg-white border-r border-slate-200 flex flex-col">
+            <div className="p-4 border-b border-slate-200">
                 <Button
                     variant="ghost"
                     size="sm"
                     onClick={() => navigate('/dashboard')}
                 >
-                    <ArrowLeft className="" />
+                    <ArrowLeft className="w-4 h-4 mr-2" />
                     Back to Dashboard
                 </Button>
-                <h2 className="" title={book.title}>
+                <h2
+                    className="text-base font-semibold text-slate-800 mt-4 truncate"
+                    title={book.title}
+                >
                     {book.title}
                 </h2>
             </div>
-            <div className="">
+            <div className="flex-1 overflow-y-auto">
                 <DndContext
                     collisionDetection={closestCenter}
                     onDragEnd={handleDragEnd}
@@ -71,7 +74,7 @@ const ChapterSidebar = ({
                         items={chapterIds}
                         strategy={verticalListSortingStrategy}
                     >
-                        <div className="">
+                        <div className="p-4 space-y-2">
                             {book.chapters.map((chapter, index) => (
                                 <SortableItem
                                     key={chapter._id || `new-${index}`}
@@ -91,13 +94,15 @@ const ChapterSidebar = ({
                 </DndContext>
             </div>
 
-            <div className="">
-                <Button 
-                variant='secondary'
-                onClick={onAddChapter}
-                className=''
-                icon={Plus}
-                >New</Button>
+            <div className="p-4 border-t border-slate-200">
+                <Button
+                    variant="secondary"
+                    onClick={onAddChapter}
+                    className=""
+                    icon={Plus}
+                >
+                    New
+                </Button>
             </div>
         </aside>
     );
