@@ -27,7 +27,11 @@ const SortableItem = ({
         transition
     };
     return (
-        <div ref={setNodeRef} style={style} className="group flex items-center bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 relative overflow-hidden">
+        <div
+            ref={setNodeRef}
+            style={style}
+            className="group flex items-center bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 relative overflow-hidden"
+        >
             <button
                 className={`flex-1 flex items-center p-3 text-sm rounded-l-lg text-left transition-colors ${
                     selectedChapterIndex === index
@@ -36,19 +40,25 @@ const SortableItem = ({
                 }`}
                 onClick={() => onSelectChapter}
             >
-                <GripVertical className="w-4 h-4 text-slate-400 mr-2 cursor-grab" {...listeners} {...attributes} />
+                <GripVertical
+                    className="w-4 h-4 text-slate-400 mr-2 cursor-grab"
+                    {...listeners}
+                    {...attributes}
+                />
                 <span className="truncate">{chapter.title}</span>
             </button>
             <div className="flex items-center ml-2 bg-white opacity-0 group-hover:opacity-100 transition-opacity px-2 py-3 absolute right-0">
                 <Button
                     variant="ghost"
                     size="small "
-                    className="py-2 px-2"
+                    className="py-2 px-2 "
                     onClick={() => onGenerateChapterContent(index)}
                     isLoading={isGenerating === index}
                     title="Generate Content with AI"
                 >
-                    {isGenerating !== index && <Sparkles className="" />}
+                    {isGenerating !== index && (
+                        <Sparkles className="w-3.5 h-3.5 text-violet-900" />
+                    )}
                 </Button>
                 <Button
                     variant="ghost"
