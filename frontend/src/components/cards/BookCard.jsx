@@ -38,7 +38,7 @@ const BookCard = ({ book, onDelete }) => {
             hover:-translate-y-1 cursor-pointer"
             onClick={() => navigate(`/view-book/${book._id}`)}
         >
-            <div className="relative overflow-hidden bg-linear-to-br from-gray-50 to-gray-100">
+            <div className="group relative overflow-hidden bg-linear-to-br from-gray-50 to-gray-100">
 
                 {/* IMAGE BLOCK — SAFE RENDERING */}
                 {coverImageUrl ? (

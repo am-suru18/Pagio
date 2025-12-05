@@ -46,7 +46,7 @@ const EditorPage = () => {
         const fetchBook = async () => {
             try {
                 const response = await axiosInstance.get(
-                    `${API_PATHS.BOOKS.GET_BOOKS_BY_ID}/${bookId}`
+                    `${API_PATHS.BOOKS.GET_BOOK_BY_ID}/${bookId}`
                 );
                 setBook(response.data);
             } catch (error) {
