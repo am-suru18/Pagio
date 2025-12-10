@@ -7,7 +7,7 @@ import SimpleMDEditor from './SimpleMDEditor';
 const ChapterEditorTab = ({
     book = {
         title: 'Untitled',
-        chapter: [
+        chapters: [
             {
                 title: 'Chapter 1',
                 content: '-'
@@ -19,6 +19,48 @@ const ChapterEditorTab = ({
     onGenerateChapterContent = () => {},
     isGenerating
 }) => {
+    const [isPreviewMode, setIsPreviewMode] = useState(false);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
+    //Simple markdown parser
+    const formatMarkdown = (content) => {};
+
+    const mdeOptions = useMemo(() => {
+        return {
+            autofocus: true,
+            spellChecker: false,
+            toolbar: [
+                'bold',
+                'italic',
+                'heading',
+                '|',
+                'quote',
+                'unordered-list',
+                'ordered-list',
+                '|',
+                'link',
+                'image',
+                '|',
+                'preview',
+                'side-by-side',
+                'fullscreen'
+            ]
+        };
+    }, []);
+
+    if (selectedChapterIndex === null || !book.chapters[selectedChapterIndex]) {
+        return (
+            <div className="">
+                <div className="">
+                    <div className="">
+                        <Type className="" />
+                    </div>
+                    <p className="">Select a chapter to start editing</p>
+                    <p className="">Choose from the sidebar to begin writing</p>
+                </div>
+            </div>
+        );
+    }
     return <div className=""></div>;
 };
 
