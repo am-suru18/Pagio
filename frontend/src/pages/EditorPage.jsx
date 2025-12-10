@@ -223,7 +223,7 @@ const EditorPage = () => {
                         </div>
                     </header>
 
-                    <div className="">
+                    <div className="w-full">
                         {activeTab === 'editor' ? (
                             <ChapterEditorTab
                                 book={book}
