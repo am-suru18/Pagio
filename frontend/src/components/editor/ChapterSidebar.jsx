@@ -151,7 +151,6 @@ const ChapterSidebar = ({
           className=""
           icon={Plus}
         >
-          "New ChapterSidebar is handleDragEnd"
         </Button>
       </div>
     </aside>
