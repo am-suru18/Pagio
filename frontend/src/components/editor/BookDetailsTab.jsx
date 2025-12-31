@@ -7,7 +7,11 @@ const BookDetailsTab = ({
     isUploading,
     fileInputRef
 }) => {
-    return <div></div>;
+    return (
+        <div>
+            <div className=""></div>
+        </div>
+    );
 };
 
 export default BookDetailsTab;
