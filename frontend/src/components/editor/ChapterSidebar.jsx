@@ -10,7 +10,7 @@ import { CSS } from '@dnd-kit/utilities';
 
 import Button from '../ui/Button';
 
-//SortableItem Component
+//SortableItem Componentza
 const SortableItem = ({
   chapter,
   index,

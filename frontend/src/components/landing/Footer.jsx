@@ -10,7 +10,7 @@ const Footer = () => {
             </div>
 
             <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="py-16 grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div className="py-16 grid grid-cols-1      md:grid-cols-12 gap-12">
                     {/* Brand Section */}
                     <div className="md:col-span-5 space-y-6">
                         <a
@@ -24,6 +24,7 @@ const Footer = () => {
                                 Pagio
                             </span>
                         </a>
+
                         <p className="text-gray-400 leading-relaxed max-w-sm">
                             Create, design, and publish stunning eBooks with the
                             power of AI.
