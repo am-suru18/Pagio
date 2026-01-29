@@ -24,7 +24,7 @@ import Button from '../components/ui/Button.jsx';
 import Modal from '../components/ui/Modal.jsx';
 import SelectField from '../components/ui/SelectField.jsx';
 import ChapterEditorTab from '../components/editor/ChapterEditorTab.jsx';
-import BookDetailsTab from '../components/editor/BookDetailsTab.jsx'
+import BookDetailsTab from '../components/editor/BookDetailsTab.jsx';
 
 const EditorPage = () => {
     const { bookId } = useParams();
