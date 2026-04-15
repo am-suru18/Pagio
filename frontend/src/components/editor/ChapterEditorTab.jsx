@@ -23,7 +23,9 @@ const ChapterEditorTab = ({
     const [isFullscreen, setIsFullscreen] = useState(false);
 
     //Simple markdown parser
-    const formatMarkdown = (content) => {};
+    const formatMarkdown = (content) => {
+        return ();
+    };
 
     const mdeOptions = useMemo(() => {
         return {
@@ -68,7 +70,7 @@ const ChapterEditorTab = ({
 
     const currentChapter = book.chapters[selectedChapterIndex];
 
-    return <div className=""></div>;
+    return <div className="">ChapterEditorTab</div>;
 };
 
 export default ChapterEditorTab;
